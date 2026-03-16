@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Servicios — H&H Diseño Fabricacion y Montaje"
+  description="Conoce el catálogo completo de servicios metalmecánicos, diseño estructural y montaje industrial de H&H."
+>
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="container page-hero__content">
+      <span class="hero__badge">Nuestra Oferta</span>
+      <h1>Servicios Industriales</h1>
+      <p>Capacidad operativa superior para resolver los desafíos estructurales más exigentes. Descubre lo que podemos hacer por ti.</p>
+    </div>
+  </section>
+
+  <section class="section" id="diseno">
+    <div class="container">
+      <div class="grid-2 service-detail">
+        <div class="service-info">
+          <span class="section-tag">Fase 1</span>
+          <h2>Diseño e Ingeniería</h2>
+          <p>La base de un proyecto exitoso es una ingeniería impecable. Nuestro equipo técnico desarrolla modelados 3D, cálculos estructurales (resistencia, cargas de viento, sismo) y planos de taller precisos. Utilizamos software avanzado para asegurar que la fabricación no tenga retrabajos.</p>
+          <ul class="detail-list">
+            <li>✓ Modelado 3D BIM estructural</li>
+            <li>✓ Cálculo de esfuerzos y fatiga</li>
+            <li>✓ Planos de despique y ensamblaje</li>
+          </ul>
+        </div>
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=800&h=600&fit=crop" alt="Ingeniero revisando planos" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="fabricacion">
+    <div class="container">
+      <div class="grid-2 service-detail reverse">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=800&h=600&fit=crop" alt="Taller de fabricación de acero" loading="lazy" />
+        </div>
+        <div class="service-info">
+          <span class="section-tag">Fase 2</span>
+          <h2>Fabricación Estructural</h2>
+          <p>Nuestra planta de producción transforma el acero pesado y liviano con procesos certificados de corte por plasma, Guillotina, CNC y soldadura especializada (SMAW, GMAW, FCAW, GTAW). Fabricamos naves industriales, vigas sección variable, plataformas y tanques.</p>
+          <ul class="detail-list">
+            <li>✓ Soldadores homologados ASME / AWS</li>
+            <li>✓ Tratamiento anticorrosivo y pintura</li>
+            <li>✓ Control de calidad por Ensayos No Destructivos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="montaje">
+    <div class="container">
+      <div class="grid-2 service-detail">
+        <div class="service-info">
+          <span class="section-tag">Fase 3</span>
+          <h2>Montaje Industrial</h2>
+          <p>Ejecutamos el ensamblaje en obra con equipos de izaje propios, grúas y una dirección de seguridad estricta. Trabajamos en altura, montaje de estructuras metálicas, techos parabólicos, coberturas y cerramientos bajo normativas rigurosas.</p>
+          <ul class="detail-list">
+            <li>✓ Planificación logística y rigor en plazos</li>
+            <li>✓ Supervisión SSOMA en todo momento</li>
+            <li>✓ Instalación de coberturas y fajas transportadoras</li>
+          </ul>
+        </div>
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=800&h=600&fit=crop" alt="Grúa realizando montaje" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-content text-center">
+      <h2>Transformamos el acero en obras maestras</h2>
+      <p>Déjanos manejar la ingeniería y ejecución física de tu idea.</p>
+      <a href="/#contacto" class="btn btn-primary">Cotizar Servicio</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(var(--header-height) + 80px) 0 100px;
+    background-image: url('https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,76,132,0.92), rgba(49,115,186,0.88));
+  }
+  .page-hero__content { position: relative; z-index: 2; }
+  .page-hero h1 { color: #fff; margin-bottom: var(--space-sm); }
+  .page-hero p { color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+  .hero__badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4xl); align-items: center; }
+  .service-image img { width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); }
+  .service-info h2 { color: var(--color-primary); margin-bottom: var(--space-md); }
+  .service-info p { color: var(--color-text-secondary); font-size: 1.05rem; margin-bottom: var(--space-lg); }
+  
+  .detail-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+  .detail-list li { color: var(--color-primary-dark); font-weight: 500; }
+  
+  .cta-section {
+    padding: var(--space-4xl) 0;
+    background: var(--grad-primary);
+    color: white;
+  }
+  .cta-content h2 { color: white; margin-bottom: var(--space-sm); }
+  .cta-content p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto var(--space-xl) auto; font-size: 1.1rem; }
+
+  @media (max-width: 960px) {
+    .grid-2 { grid-template-columns: 1fr; gap: var(--space-2xl); }
+    .reverse .service-image { order: 2; }
+    .reverse .service-info { order: 1; }
+  }
+  @media (max-width: 768px) {
+    .page-hero { padding: calc(var(--header-height) + 40px) 0 60px; }
+  }
+</style>

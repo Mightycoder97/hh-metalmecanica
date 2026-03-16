@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Teko:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Primary Palette */
+  --color-primary: #3173BA;
+  --color-primary-light: #4A8CDB;
+  --color-primary-dark: #1A4C84;
+
+  /* Accent */
+  --color-accent: #BA7831;
+  --color-accent-light: #D9944A;
+  --color-accent-dark: #965C21;
+
+  /* Neutrals */
+  --color-bg: #fafaf8;
+  --color-bg-alt: #f3f1ed;
+  --color-surface: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #5a5a5a;
+  --color-text-light: #8a8a8a;
+  --color-border: #e5e2dc;
+
+  /* Semantic */
+  --color-success: #2e7d32;
+  --color-available: #2e7d32;
+  --color-reserved: #f57c00;
+  --color-sold: #c62828;
+
+  /* Typography */
+  --font-heading: 'Teko', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Radii */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-full: 9999px;
+
+  /* Metallic Gradients */
+  --grad-primary: linear-gradient(135deg, #173f6b 0%, #3173BA 35%, #5a9ced 50%, #3173BA 65%, #1A4C84 100%);
+  --grad-accent: linear-gradient(135deg, #7a4714 0%, #BA7831 35%, #f2b36d 50%, #BA7831 65%, #965C21 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 80px;
+}
+
+/* 3. CSS Reset */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; padding: 0; font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.6; }
+img, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; transition: all var(--transition-base); }
+ul { list-style: none; padding: 0; margin: 0; }
+
+/* 4. Typography */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.1; margin: 0 0 var(--space-md) 0; font-weight: 500; text-transform: uppercase; letter-spacing: 0.03em; }
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; }
+h2 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+p { margin: 0 0 var(--space-md) 0; }
+
+/* 5. Utility Classes */
+.container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-lg); }
+.section { padding: var(--space-4xl) 0; }
+.section-alt { background: var(--color-bg-alt); }
+.section-header { text-align: center; margin-bottom: var(--space-3xl); max-width: 800px; margin-left: auto; margin-right: auto; }
+.section-tag { display: inline-block; padding: 6px 16px; background: rgba(186, 120, 49, 0.12); color: var(--color-accent-dark); border-radius: var(--radius-full); font-size: 0.85rem; font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-md); }
+.text-center { text-align: center; }
+
+/* 6. Button System (Metallic) */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 32px; border-radius: var(--radius-sm); font-family: var(--font-heading); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all var(--transition-base); border: 2px solid transparent; position: relative; overflow: hidden; z-index: 1; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+.btn::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity var(--transition-base); }
+.btn-primary { background: var(--grad-accent); border: 1px solid rgba(255,255,255,0.3); color: white; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 6px rgba(0,0,0,0.2); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 6px 12px rgba(0,0,0,0.3); }
+.btn-primary:hover::before { opacity: 1; background: linear-gradient(135deg, #BA7831 0%, #f2b36d 30%, #BA7831 100%); }
+.btn-secondary { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.5); color: white; backdrop-filter: blur(4px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); }
+.btn-secondary:hover { background: rgba(0,0,0,0.6); border-color: white; transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 10px rgba(0,0,0,0.3); }
+.btn-outline { background: transparent; border: 2px solid var(--color-primary); color: var(--color-primary); font-weight: 700; text-shadow: none; }
+.btn-outline:hover { background: var(--grad-primary); border-color: transparent; color: white; transform: translateY(-2px); text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+.btn-sm { padding: 8px 24px; font-size: 1.2rem; }
+
+/* 7. Card System */
+.card { background: var(--color-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden; transition: all var(--transition-base); border: 1px solid var(--color-border); }
+.card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.card-body { padding: var(--space-xl); }
+.card-img { width: 100%; height: 260px; object-fit: cover; }
+
+/* 8. Form System */
+.form-group { margin-bottom: var(--space-lg); }
+.form-label { display: block; margin-bottom: var(--space-xs); font-weight: 600; font-size: 0.95rem; }
+.form-control { width: 100%; padding: 14px 16px; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 1rem; transition: all var(--transition-base); color: var(--color-text); }
+.form-control:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 3px rgba(186, 120, 49, 0.15); }
+textarea.form-control { resize: vertical; min-height: 140px; }
+
+/* 9. Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+.animate-fade-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* 10. WhatsApp Float */
+.whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: var(--shadow-lg); z-index: 100; transition: all var(--transition-base); }
+.whatsapp-float:hover { transform: scale(1.1) translateY(-5px); box-shadow: var(--shadow-xl); background-color: #20b858; color: white; }
+.whatsapp-float svg { width: 32px; height: 32px; fill: currentColor; }
+
+/* 11. Responsive */
+@media (max-width: 960px) {
+  :root { --space-4xl: 4rem; --space-3xl: 3rem; --header-height: 70px; }
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 768px) {
+  :root { --space-4xl: 3rem; --space-3xl: 2rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr !important; }
+  .section { padding: var(--space-2xl) 0; }
+  .container { padding: 0 var(--space-md); }
+}
+@media (max-width: 600px) {
+  h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
+  h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .btn { width: 100%; padding: 14px 24px; }
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+  .whatsapp-float svg { width: 28px; height: 28px; }
+}

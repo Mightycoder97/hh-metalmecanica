@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Nosotros — H&H Diseño Fabricacion y Montaje"
+  description="Conoce la historia, misión y valores de H&H, especialistas en metalmecánica y montaje."
+>
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="container page-hero__content">
+      <span class="hero__badge">Nuestra Empresa</span>
+      <h1>Sobre Nosotros</h1>
+      <p>Pasión por la ingeniería, precisión en la fabricación y seguridad en cada montaje. Conoce al equipo detrás de H&H.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-2 mission-vision-grid">
+        <div class="card mv-card">
+          <div class="card-body">
+            <h3>Nuestra Misión</h3>
+            <p>Proveer soluciones metalmecánicas integrales y de excelencia, garantizando la satisfacción de nuestros clientes mediante la innovación, calidad en materiales y el cumplimiento riguroso de normativas y plazos.</p>
+          </div>
+        </div>
+        <div class="card mv-card">
+          <div class="card-body">
+            <h3>Nuestra Visión</h3>
+            <p>Ser reconocidos a nivel nacional como la empresa líder en estructuras metálicas y montajes industriales, distinguidos por nuestra capacidad de ejecutar proyectos de alta complejidad con total seguridad.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Nuestros Pilares</span>
+        <h2>Valores Corporativos</h2>
+      </div>
+      <div class="grid-3 values-grid">
+        <div class="value-item text-center">
+          <div class="emoji-icon">🛡️</div>
+          <h3>Seguridad Total</h3>
+          <p>La integridad de nuestro equipo y de las instalaciones es el principio fundamental en cada maniobra.</p>
+        </div>
+        <div class="value-item text-center">
+          <div class="emoji-icon">⚙️</div>
+          <h3>Excelencia Técnica</h3>
+          <p>Mejoramos continuamente nuestros procesos de soldadura, corte y ensamblaje para superar los estándares.</p>
+        </div>
+        <div class="value-item text-center">
+          <div class="emoji-icon">🤝</div>
+          <h3>Compromiso</h3>
+          <p>Cumplimos nuestra palabra en tiempos de entrega y especificaciones detalladas del cliente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-content text-center">
+      <h2>¿Listo para empezar tu proyecto?</h2>
+      <p>Contamos con la experiencia y capacidad operativa que tu empresa necesita.</p>
+      <a href="/#contacto" class="btn btn-primary">Habla con un asesor técnico</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(var(--header-height) + 80px) 0 100px;
+    background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,76,132,0.92), rgba(49,115,186,0.88));
+  }
+  .page-hero__content { position: relative; z-index: 2; }
+  .page-hero h1 { color: #fff; margin-bottom: var(--space-sm); }
+  .page-hero p { color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+  .hero__badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .mission-vision-grid { gap: var(--space-xl); margin-top: -60px; position: relative; z-index: 10; }
+  .mv-card { border-left: 6px solid var(--color-accent); height: 100%; display: flex; flex-direction: column; justify-content: center; }
+  .mv-card h3 { color: var(--color-primary); }
+  .mv-card p { margin: 0; color: var(--color-text-secondary); font-size: 1.05rem; }
+
+  .values-grid { gap: var(--space-2xl); }
+  .value-item { padding: var(--space-xl) var(--space-lg); background: var(--color-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
+  .emoji-icon { font-size: 3.5rem; margin-bottom: var(--space-md); }
+  .value-item h3 { color: var(--color-primary); }
+  .value-item p { color: var(--color-text-secondary); margin: 0; }
+
+  .cta-section {
+    padding: var(--space-4xl) 0;
+    background: var(--grad-primary);
+    color: white;
+  }
+  .cta-content h2 { color: white; margin-bottom: var(--space-sm); }
+  .cta-content p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto var(--space-xl) auto; font-size: 1.1rem; }
+
+  @media (max-width: 768px) {
+    .mission-vision-grid { grid-template-columns: 1fr; margin-top: 0; }
+    .page-hero { padding: calc(var(--header-height) + 40px) 0 60px; }
+  }
+  @media (max-width: 600px) {
+    .emoji-icon { font-size: 2.8rem; }
+    .mv-card { padding: var(--space-md) 0; border-left-width: 4px; }
+  }
+</style>

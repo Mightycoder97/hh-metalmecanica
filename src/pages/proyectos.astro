@@ -1,0 +1,184 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Proyectos — H&H Diseño Fabricacion y Montaje"
+  description="Galería de proyectos ejecutados de H&H. Descubre nuestra capacidad en estructuras metálicas y montajes industriales."
+>
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="container page-hero__content">
+      <span class="hero__badge">Portafolio</span>
+      <h1>Nuestros Proyectos</h1>
+      <p>Resultados reales y tangibles. Una muestra de los trabajos en diseño estructural, fabricación y montaje ejecutados.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Galería de Obras</span>
+        <h2>Ejecución Comprobada</h2>
+        <p>Cada estructura cuenta nuestra historia de compromiso y precisión técnica.</p>
+      </div>
+
+      <div class="proyecto-gallery">
+        <div class="proyecto-item span-2-col span-2-row">
+          <img src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=1000&h=800&fit=crop" alt="Montaje de nave industrial" loading="lazy" />
+          <div class="proyecto-overlay">
+            <h3>Montaje de Nave Industrial — 5000m²</h3>
+            <span class="proyecto-tag">Montaje Industrial</span>
+          </div>
+        </div>
+        
+        <div class="proyecto-item">
+          <img src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=600&h=400&fit=crop" alt="Cálculo estructural y planos" loading="lazy" />
+          <div class="proyecto-overlay">
+            <h3>Diseño Estructural de Planta</h3>
+            <span class="proyecto-tag">Ingeniería</span>
+          </div>
+        </div>
+
+        <div class="proyecto-item">
+          <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&h=400&fit=crop" alt="Soldadura de tanque" loading="lazy" />
+          <div class="proyecto-overlay">
+            <h3>Fabricación de Tanques de Almacenamiento</h3>
+            <span class="proyecto-tag">Fabricación</span>
+          </div>
+        </div>
+
+        <div class="proyecto-item">
+          <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=600&h=400&fit=crop" alt="Vigas de acero pesado" loading="lazy" />
+          <div class="proyecto-overlay">
+            <h3>Vigas Sección Variable para Puente</h3>
+            <span class="proyecto-tag">Fabricación Pesada</span>
+          </div>
+        </div>
+
+        <div class="proyecto-item">
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop" alt="Mantenimiento en planta" loading="lazy" />
+          <div class="proyecto-overlay">
+            <h3>Parada de Planta y Mantenimiento</h3>
+            <span class="proyecto-tag">Soluciones a Medida</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container cta-content text-center">
+      <h2>¿Tu empresa será nuestro próximo gran proyecto?</h2>
+      <p>Nos adaptamos a presupuestos y cronogramas exigentes.</p>
+      <a href="/#contacto" class="btn btn-primary">Inicia una conversación</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(var(--header-height) + 80px) 0 100px;
+    background-image: url('https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26,76,132,0.92), rgba(49,115,186,0.88));
+  }
+  .page-hero__content { position: relative; z-index: 2; }
+  .page-hero h1 { color: #fff; margin-bottom: var(--space-sm); }
+  .page-hero p { color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+  .hero__badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .proyecto-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 280px;
+    gap: var(--space-md);
+  }
+  .proyecto-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+  }
+  .span-2-col { grid-column: span 2; }
+  .span-2-row { grid-row: span 2; }
+  
+  .proyecto-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .proyecto-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: var(--space-lg);
+    opacity: 0.9;
+    transition: all var(--transition-base);
+  }
+  .proyecto-overlay h3 {
+    color: white;
+    margin: 0 0 var(--space-xs) 0;
+    font-size: 1.5rem;
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+  }
+  .proyecto-tag {
+    color: var(--color-accent-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  .span-2-col .proyecto-overlay h3 { font-size: 2rem; }
+  
+  .proyecto-item:hover img { transform: scale(1.05); }
+  .proyecto-item:hover .proyecto-overlay { opacity: 1; background: linear-gradient(to top, rgba(26,76,132,0.9) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%); }
+  .proyecto-item:hover .proyecto-overlay h3 { transform: translateY(0); color: white; }
+  .proyecto-item:hover .proyecto-tag { transform: translateY(0); opacity: 1; }
+
+  .cta-section {
+    padding: var(--space-4xl) 0;
+    background: var(--grad-primary);
+    color: white;
+    margin-top: var(--space-4xl);
+  }
+  .cta-content h2 { color: white; margin-bottom: var(--space-sm); }
+  .cta-content p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto var(--space-xl) auto; font-size: 1.1rem; }
+
+  @media (max-width: 960px) {
+    .proyecto-gallery { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .proyecto-gallery { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+    .span-2-col { grid-column: span 1; }
+    .span-2-row { grid-row: span 1; }
+  }
+</style>
