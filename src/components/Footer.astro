@@ -92,7 +92,7 @@ const navLinks2 = [
   }
   .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-columns: 1fr; /* Default mobile 1 column */
     gap: var(--space-3xl);
     margin-bottom: var(--space-4xl);
   }
@@ -222,21 +222,22 @@ const navLinks2 = [
     color: var(--color-accent-light);
   }
   
-  @media (min-width: 768px) {
+  /* Tablet */
+  @media (min-width: 481px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
     .footer-bottom {
       flex-direction: row;
       justify-content: space-between;
       text-align: left;
     }
   }
-  @media (max-width: 960px) {
+  
+  /* Desktop */
+  @media (min-width: 1025px) {
     .footer-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  @media (max-width: 768px) {
-    .footer-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1.5fr 1fr 1fr;
     }
   }
 </style>

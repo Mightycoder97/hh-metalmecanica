@@ -63,7 +63,7 @@
 
   /* Layout */
   --max-width: 1200px;
-  --header-height: 80px;
+  --header-height: 70px; /* Default for mobile */
 }
 
 /* 3. CSS Reset */
@@ -82,15 +82,15 @@ h3 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
 p { margin: 0 0 var(--space-md) 0; }
 
 /* 5. Utility Classes */
-.container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-lg); }
-.section { padding: var(--space-4xl) 0; }
+.container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-md); } /* Mobile padding 16px */
+.section { padding: var(--space-2xl) 0; }
 .section-alt { background: var(--color-bg-alt); }
 .section-header { text-align: center; margin-bottom: var(--space-3xl); max-width: 800px; margin-left: auto; margin-right: auto; }
 .section-tag { display: inline-block; padding: 6px 16px; background: rgba(186, 120, 49, 0.12); color: var(--color-accent-dark); border-radius: var(--radius-full); font-size: 0.85rem; font-family: var(--font-body); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: var(--space-md); }
 .text-center { text-align: center; }
 
 /* 6. Button System (Metallic) */
-.btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 32px; border-radius: var(--radius-sm); font-family: var(--font-heading); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all var(--transition-base); border: 2px solid transparent; position: relative; overflow: hidden; z-index: 1; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; min-height: 44px; width: 100%; border-radius: var(--radius-sm); font-family: var(--font-heading); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all var(--transition-base); border: 2px solid transparent; position: relative; overflow: hidden; z-index: 1; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
 .btn::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity var(--transition-base); }
 .btn-primary { background: var(--grad-accent); border: 1px solid rgba(255,255,255,0.3); color: white; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 6px rgba(0,0,0,0.2); }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 6px 12px rgba(0,0,0,0.3); }
@@ -121,16 +121,16 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 .animate-fade-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
 /* 10. WhatsApp Float */
-.whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 30px; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: var(--shadow-lg); z-index: 100; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; overflow: hidden; padding: 0 14px; box-sizing: border-box; }
+.whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px; background-color: #25d366; color: white; border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: var(--shadow-lg); z-index: 100; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; overflow: hidden; padding: 0 11px; box-sizing: border-box; }
 .whatsapp-float:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); background-color: #20b858; color: white; }
-.whatsapp-float svg { width: 32px; height: 32px; fill: currentColor; flex-shrink: 0; }
+.whatsapp-float svg { width: 28px; height: 28px; fill: currentColor; flex-shrink: 0; }
 
 .whatsapp-text {
   max-width: 0;
   opacity: 0;
   white-space: nowrap;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   margin-left: 0;
@@ -138,32 +138,37 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 }
 
 .whatsapp-float.scrolled {
-  width: 280px;
+  width: 240px;
 }
 
 .whatsapp-float.scrolled .whatsapp-text {
   max-width: 250px;
   opacity: 1;
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
-/* 11. Responsive */
-@media (max-width: 960px) {
-  :root { --space-4xl: 4rem; --space-3xl: 3rem; --header-height: 70px; }
-  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+/* 11. Responsive (Mobile First) */
+.grid-2, .grid-3, .grid-4 { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); }
+
+@media (min-width: 481px) {
+  /* Tablet */
+  :root { --space-4xl: 3rem; --space-3xl: 2rem; --header-height: 70px; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: var(--space-3xl) 0; }
+  .btn { width: auto; padding: 12px 32px; }
 }
-@media (max-width: 768px) {
-  :root { --space-4xl: 3rem; --space-3xl: 2rem; }
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr !important; }
-  .section { padding: var(--space-2xl) 0; }
-  .container { padding: 0 var(--space-md); }
-}
-@media (max-width: 600px) {
-  h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
-  h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
-  .btn { width: 100%; padding: 14px 24px; }
-  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; padding: 0 11px; border-radius: 25px; }
-  .whatsapp-float svg { width: 28px; height: 28px; }
-  .whatsapp-float.scrolled { width: 240px; }
-  .whatsapp-float.scrolled .whatsapp-text { font-size: 0.9rem; margin-left: 6px; }
+
+@media (min-width: 1025px) {
+  /* Desktop */
+  :root { --space-4xl: 4rem; --space-3xl: 3rem; --header-height: 80px; }
+  .container { padding: 0 var(--space-lg); }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .section { padding: var(--space-4xl) 0; }
+  
+  .whatsapp-float { width: 60px; height: 60px; bottom: 30px; right: 30px; padding: 0 14px; border-radius: 30px; }
+  .whatsapp-float svg { width: 32px; height: 32px; }
+  .whatsapp-float.scrolled { width: 280px; }
+  .whatsapp-float.scrolled .whatsapp-text { font-size: 1rem; margin-left: 8px; }
 }

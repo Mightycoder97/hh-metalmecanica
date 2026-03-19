@@ -244,12 +244,12 @@ const currentPath = Astro.url.pathname;
   }
   
   .mobile-toggle {
-    display: none;
+    display: block; /* Default for mobile */
     background: none;
     border: none;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 44px; /* Increased touch area */
+    height: 44px; /* Increased touch area */
     position: relative;
     z-index: 101;
   }
@@ -324,17 +324,25 @@ const currentPath = Astro.url.pathname;
   }
   .mt-xl { margin-top: var(--space-xl); }
 
-  @media (max-width: 960px) {
-    .desktop-nav { display: none; }
-    .mobile-toggle { display: block; }
+  /* Mobile Defaults */
+  .desktop-nav { display: none; }
+  .top-bar-container { justify-content: center; }
+  .hide-mobile { display: none; }
+  .brand-text { display: none; }
+  .brand-logo { max-height: 55px; }
+
+  /* Tablet */
+  @media (min-width: 481px) {
+    .brand-text { display: block; }
+    .brand-logo { max-height: 65px; }
+    .top-bar-container { justify-content: space-between; }
+    .hide-mobile { display: flex; }
   }
-  @media (max-width: 768px) {
-    .top-bar-container { justify-content: center; }
-    .hide-mobile { display: none; }
-  }
-  @media (max-width: 600px) {
-    .brand-text { display: none; }
-    .brand-logo { max-height: 55px; }
+
+  /* Desktop */
+  @media (min-width: 1025px) {
+    .desktop-nav { display: flex; }
+    .mobile-toggle { display: none; }
   }
 </style>
 
