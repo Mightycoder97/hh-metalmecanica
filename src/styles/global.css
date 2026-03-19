@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Teko:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@400;500;600;700&family=Teko:wght@400;500;600;700&display=swap');
 
 :root {
   /* Primary Palette */
@@ -121,9 +121,31 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 .animate-fade-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
 /* 10. WhatsApp Float */
-.whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: var(--shadow-lg); z-index: 100; transition: all var(--transition-base); }
-.whatsapp-float:hover { transform: scale(1.1) translateY(-5px); box-shadow: var(--shadow-xl); background-color: #20b858; color: white; }
-.whatsapp-float svg { width: 32px; height: 32px; fill: currentColor; }
+.whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background-color: #25d366; color: white; border-radius: 30px; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: var(--shadow-lg); z-index: 100; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-decoration: none; overflow: hidden; padding: 0 14px; box-sizing: border-box; }
+.whatsapp-float:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); background-color: #20b858; color: white; }
+.whatsapp-float svg { width: 32px; height: 32px; fill: currentColor; flex-shrink: 0; }
+
+.whatsapp-text {
+  max-width: 0;
+  opacity: 0;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.whatsapp-float.scrolled {
+  width: 280px;
+}
+
+.whatsapp-float.scrolled .whatsapp-text {
+  max-width: 250px;
+  opacity: 1;
+  margin-left: 8px;
+}
 
 /* 11. Responsive */
 @media (max-width: 960px) {
@@ -140,6 +162,8 @@ textarea.form-control { resize: vertical; min-height: 140px; }
   h1 { font-size: clamp(2.2rem, 8vw, 3rem); }
   h2 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
   .btn { width: 100%; padding: 14px 24px; }
-  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+  .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; padding: 0 11px; border-radius: 25px; }
   .whatsapp-float svg { width: 28px; height: 28px; }
+  .whatsapp-float.scrolled { width: 240px; }
+  .whatsapp-float.scrolled .whatsapp-text { font-size: 0.9rem; margin-left: 6px; }
 }

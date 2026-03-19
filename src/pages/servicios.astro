@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout 
   title="Servicios — H&H Diseño Fabricacion y Montaje"
-  description="Conoce el catálogo completo de servicios metalmecánicos, diseño estructural y montaje industrial de H&H."
+  description="Catálogo completo de servicios metalmecánicos: ingeniería, fabricación, montaje, mantenimiento y acabado superficial."
 >
   <section class="page-hero">
     <div class="page-hero__overlay"></div>
@@ -15,17 +15,19 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="section" id="diseno">
+  <!-- 1. Ingeniería y Proyectos -->
+  <section class="section" id="ingenieria">
     <div class="container">
       <div class="grid-2 service-detail">
         <div class="service-info">
-          <span class="section-tag">Fase 1</span>
-          <h2>Diseño e Ingeniería</h2>
-          <p>La base de un proyecto exitoso es una ingeniería impecable. Nuestro equipo técnico desarrolla modelados 3D, cálculos estructurales (resistencia, cargas de viento, sismo) y planos de taller precisos. Utilizamos software avanzado para asegurar que la fabricación no tenga retrabajos.</p>
+          <span class="section-tag">Servicio 01</span>
+          <h2>Ingeniería y Proyectos</h2>
+          <p>La base de un proyecto exitoso es una ingeniería impecable. Nuestro equipo técnico desarrolla soluciones completas desde el diseño hasta la documentación técnica, asegurando que cada proyecto se ejecute con precisión y sin retrabajos.</p>
           <ul class="detail-list">
-            <li>✓ Modelado 3D BIM estructural</li>
-            <li>✓ Cálculo de esfuerzos y fatiga</li>
-            <li>✓ Planos de despique y ensamblaje</li>
+            <li>✓ Diseño de estructuras metálicas</li>
+            <li>✓ Diseño de piezas mecánicas</li>
+            <li>✓ Memoria de cálculo estructural</li>
+            <li>✓ Dossier de calidad</li>
           </ul>
         </div>
         <div class="service-image">
@@ -35,41 +37,89 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <section class="section section-alt" id="fabricacion">
+  <!-- 2. Mantenimiento Industrial -->
+  <section class="section section-alt" id="mantenimiento">
     <div class="container">
       <div class="grid-2 service-detail reverse">
         <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=800&h=600&fit=crop" alt="Taller de fabricación de acero" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=600&fit=crop" alt="Mantenimiento industrial" loading="lazy" />
         </div>
         <div class="service-info">
-          <span class="section-tag">Fase 2</span>
-          <h2>Fabricación Estructural</h2>
-          <p>Nuestra planta de producción transforma el acero pesado y liviano con procesos certificados de corte por plasma, Guillotina, CNC y soldadura especializada (SMAW, GMAW, FCAW, GTAW). Fabricamos naves industriales, vigas sección variable, plataformas y tanques.</p>
+          <span class="section-tag">Servicio 02</span>
+          <h2>Mantenimiento Industrial</h2>
+          <p>Garantizamos la operatividad y vida útil de tus equipos e instalaciones industriales. Contamos con personal especializado y procedimientos que minimizan tiempos de parada y aseguran el rendimiento óptimo.</p>
           <ul class="detail-list">
-            <li>✓ Soldadores homologados ASME / AWS</li>
-            <li>✓ Tratamiento anticorrosivo y pintura</li>
-            <li>✓ Control de calidad por Ensayos No Destructivos</li>
+            <li>✓ Mantenimiento Preventivo</li>
+            <li>✓ Mantenimiento Predictivo</li>
+            <li>✓ Mantenimiento Correctivo</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="montaje">
+  <!-- 3. Fabricación y Montaje de Estructuras -->
+  <section class="section" id="fabricacion">
     <div class="container">
       <div class="grid-2 service-detail">
         <div class="service-info">
-          <span class="section-tag">Fase 3</span>
-          <h2>Montaje Industrial</h2>
-          <p>Ejecutamos el ensamblaje en obra con equipos de izaje propios, grúas y una dirección de seguridad estricta. Trabajamos en altura, montaje de estructuras metálicas, techos parabólicos, coberturas y cerramientos bajo normativas rigurosas.</p>
+          <span class="section-tag">Servicio 03</span>
+          <h2>Fabricación y Montaje de Estructuras</h2>
+          <p>Nuestra planta de producción transforma el acero pesado y liviano con procesos certificados de soldadura especializada. Fabricamos y montamos naves industriales, plataformas, tanques, techos parabólicos y estructuras de alta complejidad.</p>
           <ul class="detail-list">
-            <li>✓ Planificación logística y rigor en plazos</li>
-            <li>✓ Supervisión SSOMA en todo momento</li>
-            <li>✓ Instalación de coberturas y fajas transportadoras</li>
+            <li>✓ Fabricación de estructuras livianas y pesadas</li>
+            <li>✓ Proceso SMAW (Soldadura por arco manual)</li>
+            <li>✓ Proceso FCAW (Alambre tubular)</li>
+            <li>✓ Proceso GMAW (MIG/MAG)</li>
+            <li>✓ Proceso GTAW (TIG)</li>
           </ul>
         </div>
         <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=800&h=600&fit=crop" alt="Grúa realizando montaje" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=800&h=600&fit=crop" alt="Taller de fabricación de acero" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Fabricación de Piezas Mecánicas -->
+  <section class="section section-alt" id="piezas">
+    <div class="container">
+      <div class="grid-2 service-detail reverse">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop" alt="Fabricación de piezas mecánicas en torno" loading="lazy" />
+        </div>
+        <div class="service-info">
+          <span class="section-tag">Servicio 04</span>
+          <h2>Fabricación de Piezas Mecánicas</h2>
+          <p>Fabricamos y reconstruimos piezas mecánicas a medida con la máxima precisión. Nuestro taller cuenta con equipamiento especializado para cumplir con las tolerancias y especificaciones más exigentes de la industria.</p>
+          <ul class="detail-list">
+            <li>✓ Fabricación de piezas en Torno</li>
+            <li>✓ Fabricación de piezas en Fresadora</li>
+            <li>✓ Reconstrucción de piezas desgastadas</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Preparación y Acabado Superficial -->
+  <section class="section" id="acabado">
+    <div class="container">
+      <div class="grid-2 service-detail">
+        <div class="service-info">
+          <span class="section-tag">Servicio 05</span>
+          <h2>Preparación y Acabado Superficial</h2>
+          <p>Protegemos y embellecemos las superficies metálicas con tratamientos anticorrosivos de alto rendimiento. Ofrecemos una gama completa de acabados industriales que garantizan la durabilidad y resistencia de cada pieza.</p>
+          <ul class="detail-list">
+            <li>✓ Sandblasting (Arenado industrial)</li>
+            <li>✓ Pintura electrostática en polvo</li>
+            <li>✓ Pintura al horno</li>
+            <li>✓ Pintura epóxica</li>
+            <li>✓ Pintura de poliuretano</li>
+          </ul>
+        </div>
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=800&h=600&fit=crop" alt="Proceso de acabado superficial" loading="lazy" />
         </div>
       </div>
     </div>
