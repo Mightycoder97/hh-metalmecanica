@@ -86,26 +86,100 @@ import Layout from '../layouts/Layout.astro';
         <span class="section-tag">Nuestros Pilares</span>
         <h2>Valores Corporativos</h2>
       </div>
-      <div class="grid-4 values-grid">
+      <svg width="0" height="0" style="position:absolute; visibility:hidden;">
+        <defs>
+          <linearGradient id="metal-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7a4714" />
+            <stop offset="35%" stop-color="#BA7831" />
+            <stop offset="50%" stop-color="#f2b36d" />
+            <stop offset="65%" stop-color="#BA7831" />
+            <stop offset="100%" stop-color="#965C21" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="values-container">
+        <!-- SEGURIDAD -->
         <div class="value-item text-center">
-          <div class="emoji-icon">🛡️</div>
+          <div class="custom-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Forma Geométrica -->
+              <polygon points="50,2 91.5,26 91.5,74 50,98 8.5,74 8.5,26" fill="#fcf9f5" stroke="#e5e2dc" stroke-width="1.5"/>
+              <!-- Escudo -->
+              <path d="M50 20 L76 30 V50 C76 72 50 86 50 86 C50 86 24 72 24 50 V30 L50 20 Z" stroke="#333333" stroke-width="2.5" stroke-linejoin="round"/>
+              <!-- Casco / Protección -->
+              <path d="M36 46 C36 34 64 34 64 46 M30 46 L70 46" stroke="url(#metal-grad)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
           <h3>Seguridad</h3>
-          <p>La integridad de nuestro equipo y de las instalaciones es el principio fundamental en cada maniobra y proyecto.</p>
+          <p>Protección integral de nuestros trabajadores y procesos, garantizando cero incidentes.</p>
         </div>
+
+        <!-- EFICIENCIA / PUNTUALIDAD -->
         <div class="value-item text-center">
-          <div class="emoji-icon">⚙️</div>
-          <h3>Calidad</h3>
-          <p>Cada proyecto se ejecuta con altos estándares técnicos, asegurando resultados que superan las expectativas.</p>
+          <div class="custom-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,2 91.5,26 91.5,74 50,98 8.5,74 8.5,26" fill="#fcf9f5" stroke="#e5e2dc" stroke-width="1.5"/>
+              <!-- Cronómetro -->
+              <circle cx="50" cy="54" r="22" stroke="#333333" stroke-width="2.5"/>
+              <line x1="50" y1="24" x2="50" y2="32" stroke="#333333" stroke-width="3" stroke-linecap="round"/>
+              <line x1="68" y1="36" x2="62" y2="42" stroke="#333333" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- Flecha Ascendente -->
+              <path d="M42 62 L58 46 M58 46 H48 M58 46 V56" stroke="url(#metal-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Eficiencia / Puntualidad</h3>
+          <p>Optimización de recursos maximizando resultados con entregas siempre a tiempo.</p>
         </div>
+
+        <!-- CALIDAD / EXCELENCIA -->
         <div class="value-item text-center">
-          <div class="emoji-icon">🤝</div>
-          <h3>Compromiso</h3>
-          <p>Cumplimos nuestra palabra en tiempos de entrega y especificaciones detalladas del cliente con total responsabilidad.</p>
+          <div class="custom-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,2 91.5,26 91.5,74 50,98 8.5,74 8.5,26" fill="#fcf9f5" stroke="#e5e2dc" stroke-width="1.5"/>
+              <!-- Cintas -->
+              <path d="M40 64 L32 84 L46 76 L50 80 L54 76 L68 84 L60 64" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Insignia -->
+              <circle cx="50" cy="44" r="22" stroke="#333333" stroke-width="2.5" fill="#fcf9f5"/>
+              <!-- Estrella -->
+              <polygon points="50,34 54,42 63,43 56,49 58,58 50,53 42,58 44,49 37,43 46,42" stroke="url(#metal-grad)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Calidad / Excelencia</h3>
+          <p>Fabricación de acero bajo normas estrictas, logrando acabados estructurales perfectos.</p>
         </div>
+
+        <!-- INNOVACIÓN / TECNOLOGÍA -->
         <div class="value-item text-center">
-          <div class="emoji-icon">🚀</div>
-          <h3>Eficiencia</h3>
-          <p>Optimizamos recursos y procesos para entregar soluciones de máximo valor en el menor tiempo posible.</p>
+          <div class="custom-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,2 91.5,26 91.5,74 50,98 8.5,74 8.5,26" fill="#fcf9f5" stroke="#e5e2dc" stroke-width="1.5"/>
+              <!-- Engranaje -->
+              <circle cx="50" cy="50" r="16" stroke="#333333" stroke-width="2.5"/>
+              <path d="M46 28 L54 28 M46 72 L54 72 M28 46 L28 54 M72 46 L72 54 M34 34 L39 39 M61 61 L66 66 M34 66 L39 61 M61 39 L66 34" stroke="#333333" stroke-width="3" stroke-linecap="round"/>
+              <!-- Circuito -->
+              <path d="M44 44 L50 40 L50 50 L56 46 L56 56 H50" stroke="url(#metal-grad)" stroke-width="2.5" stroke-linejoin="round" fill="none"/>
+              <circle cx="44" cy="44" r="2.5" fill="url(#metal-grad)"/>
+              <circle cx="50" cy="50" r="2.5" fill="url(#metal-grad)"/>
+            </svg>
+          </div>
+          <h3>Innovación / Tecnología</h3>
+          <p>Implementación de maquinaria avanzada y procesos modernos para la industria.</p>
+        </div>
+
+        <!-- TRABAJO EN EQUIPO -->
+        <div class="value-item text-center">
+          <div class="custom-icon">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,2 91.5,26 91.5,74 50,98 8.5,74 8.5,26" fill="#fcf9f5" stroke="#e5e2dc" stroke-width="1.5"/>
+              <!-- Eslabones -->
+              <rect x="25" y="44" width="30" height="14" rx="7" stroke="#333333" stroke-width="2.5" fill="none"/>
+              <rect x="45" y="44" width="30" height="14" rx="7" stroke="#333333" stroke-width="2.5" fill="none"/>
+              <!-- Enlace / Chispa central -->
+              <path d="M42 34 L50 24 L58 34 M50 24 V51" stroke="url(#metal-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Trabajo en Equipo</h3>
+          <p>Sinergia y colaboración constante para ejecutar grandes y complejos proyectos.</p>
         </div>
       </div>
     </div>
@@ -171,12 +245,13 @@ import Layout from '../layouts/Layout.astro';
   .mv-card p { margin: 0; color: var(--color-text-secondary); font-size: 1.05rem; }
 
   /* Values */
-  .grid-4 { display: grid; grid-template-columns: 1fr; gap: var(--space-xl); }
-  .values-grid { gap: var(--space-xl); }
-  .value-item { padding: var(--space-xl) var(--space-lg); background: var(--color-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
-  .emoji-icon { font-size: 2.8rem; margin-bottom: var(--space-md); }
-  .value-item h3 { color: var(--color-primary); }
-  .value-item p { color: var(--color-text-secondary); margin: 0; }
+  .values-container { display: grid; grid-template-columns: 1fr; gap: var(--space-xl); margin-top: var(--space-xl); }
+  .value-item { padding: var(--space-xl) var(--space-lg); background: var(--color-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); transition: all 0.3s ease; }
+  .value-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: rgba(186, 120, 49, 0.3); }
+  .custom-icon { width: 90px; height: 90px; margin: 0 auto var(--space-lg) auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.04)); }
+  .custom-icon svg { width: 100%; height: 100%; }
+  .value-item h3 { color: var(--color-primary); font-size: 1.5rem; margin-bottom: var(--space-md); }
+  .value-item p { color: var(--color-text-secondary); margin: 0; font-size: 0.95rem; line-height: 1.5; }
 
   .cta-section {
     padding: var(--space-4xl) 0;
@@ -192,8 +267,8 @@ import Layout from '../layouts/Layout.astro';
 
   /* Tablet */
   @media (min-width: 481px) {
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
-    .emoji-icon { font-size: 3.5rem; }
+    .values-container { grid-template-columns: repeat(2, 1fr); }
+
     .mv-card { border-left-width: 6px; padding: 0; }
     .mission-vision-grid { margin-top: auto; }
   }
@@ -202,6 +277,10 @@ import Layout from '../layouts/Layout.astro';
   @media (min-width: 1025px) {
     .grid-2 { grid-template-columns: 1fr 1.2fr; gap: var(--space-4xl); }
     .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .values-container { grid-template-columns: repeat(5, 1fr); gap: var(--space-lg); }
+    .value-item { padding: var(--space-lg) var(--space-md); }
+    .custom-icon { width: 80px; height: 80px; margin-bottom: var(--space-md); }
+    .value-item h3 { font-size: 1.25rem; }
     .page-hero { padding: calc(var(--header-height) + 80px) 0 100px; }
     .about-image-wrapper { max-width: 100%; margin: 0; }
   }
