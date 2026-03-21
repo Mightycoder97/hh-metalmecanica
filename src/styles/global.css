@@ -47,8 +47,8 @@
   --radius-full: 9999px;
 
   /* Metallic Gradients */
-  --grad-primary: linear-gradient(135deg, #173f6b 0%, #3173BA 35%, #5a9ced 50%, #3173BA 65%, #1A4C84 100%);
-  --grad-accent: linear-gradient(135deg, #7a4714 0%, #BA7831 35%, #f2b36d 50%, #BA7831 65%, #965C21 100%);
+  --grad-primary: linear-gradient(135deg, #1A4C84 0%, #3173BA 25%, #5a9ced 50%, #3173BA 75%, #1A4C84 100%);
+  --grad-accent: linear-gradient(135deg, #965C21 0%, #BA7831 25%, #f2b36d 50%, #BA7831 75%, #965C21 100%);
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
@@ -92,13 +92,13 @@ p { margin: 0 0 var(--space-md) 0; }
 /* 6. Button System (Metallic) */
 .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; min-height: 44px; width: 100%; border-radius: var(--radius-sm); font-family: var(--font-heading); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; transition: all var(--transition-base); border: 2px solid transparent; position: relative; overflow: hidden; z-index: 1; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
 .btn::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity var(--transition-base); }
-.btn-primary { background: var(--grad-accent); border: 1px solid rgba(255,255,255,0.3); color: white; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 6px rgba(0,0,0,0.2); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 6px 12px rgba(0,0,0,0.3); }
-.btn-primary:hover::before { opacity: 1; background: linear-gradient(135deg, #BA7831 0%, #f2b36d 30%, #BA7831 100%); }
+.btn-primary { background: var(--grad-accent); background-size: 200% 200%; animation: metallicShine 3s ease-in-out infinite; border: 1px solid rgba(255,255,255,0.3); color: white; box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 6px rgba(0,0,0,0.2); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 6px 12px rgba(0,0,0,0.3); animation: metallicShine 1.5s ease-in-out infinite; }
+.btn-primary:hover::before { opacity: 1; background: linear-gradient(135deg, #965C21 0%, #BA7831 25%, #f2b36d 50%, #BA7831 75%, #965C21 100%); background-size: 200% 200%; animation: metallicShine 1.5s ease-in-out infinite; }
 .btn-secondary { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.5); color: white; backdrop-filter: blur(4px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); }
 .btn-secondary:hover { background: rgba(0,0,0,0.6); border-color: white; transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 4px 10px rgba(0,0,0,0.3); }
 .btn-outline { background: transparent; border: 2px solid var(--color-primary); color: var(--color-primary); font-weight: 700; text-shadow: none; }
-.btn-outline:hover { background: var(--grad-primary); border-color: transparent; color: white; transform: translateY(-2px); text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
+.btn-outline:hover { background: var(--grad-primary); background-size: 200% 200%; animation: metallicShine 1.5s ease-in-out infinite; border-color: transparent; color: white; transform: translateY(-2px); text-shadow: 1px 1px 2px rgba(0,0,0,0.2); }
 .btn-sm { padding: 8px 24px; font-size: 1.2rem; }
 
 /* 7. Card System */
@@ -118,6 +118,7 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes metallicShine { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
 .animate-fade-up { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
 /* 10. WhatsApp Float */
@@ -138,13 +139,16 @@ textarea.form-control { resize: vertical; min-height: 140px; }
 }
 
 .whatsapp-float.scrolled {
-  width: 240px;
+  width: 50px; /* Default no-expand on tiny screens */
 }
 
-.whatsapp-float.scrolled .whatsapp-text {
-  max-width: 250px;
-  opacity: 1;
-  margin-left: 6px;
+@media (min-width: 360px) {
+  .whatsapp-float.scrolled { width: 240px; }
+  .whatsapp-float.scrolled .whatsapp-text {
+    max-width: 250px;
+    opacity: 1;
+    margin-left: 6px;
+  }
 }
 
 /* 11. Responsive (Mobile First) */

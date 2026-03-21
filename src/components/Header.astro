@@ -4,6 +4,7 @@ const navLinks = [
   { href: '/nosotros', label: 'Nosotros' },
   { href: '/servicios', label: 'Servicios' },
   { href: '/proyectos', label: 'Proyectos' },
+  { href: '/galeria', label: 'Galería' },
 ];
 const currentPath = Astro.url.pathname;
 ---
@@ -99,19 +100,22 @@ const currentPath = Astro.url.pathname;
     background: rgba(0, 0, 0, 0.4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: all var(--transition-base);
-    height: 36px;
+    min-height: 44px;
     overflow: hidden;
   }
   .header.scrolled .top-bar {
+    min-height: 0;
     height: 0;
     opacity: 0;
     border-color: transparent;
+    padding: 0;
   }
   .top-bar-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
+    min-height: 44px;
     font-size: 0.75rem;
     color: #eeeeee;
     font-family: var(--font-body);
@@ -127,6 +131,7 @@ const currentPath = Astro.url.pathname;
     align-items: center;
     gap: var(--space-xs);
     transition: color var(--transition-fast);
+    padding: 8px 0;
   }
   .top-bar-link:hover {
     color: var(--color-accent);
@@ -142,23 +147,21 @@ const currentPath = Astro.url.pathname;
   }
   .top-bar-social {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     align-items: center;
   }
   .top-bar-social-link {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 44px;
+    height: 44px;
     color: #eeeeee;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
     transition: all var(--transition-base);
   }
   .top-bar-social-link svg {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
     fill: none;
     stroke: currentColor;
     stroke-width: 2;

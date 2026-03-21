@@ -1,10 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PhotoSequence from '../components/PhotoSequence.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const getImages = (serviceFolder: string) => {
+  try {
+    const dir = path.join(process.cwd(), 'public', 'fotos_de_servicios', serviceFolder);
+    if (!fs.existsSync(dir)) return [];
+    return fs.readdirSync(dir)
+      .filter(file => /\.(png|jpe?g|webp|gif)$/i.test(file))
+      .map(file => ({
+        src: `/fotos_de_servicios/${serviceFolder}/${file}`,
+        alt: `Proyecto de ${serviceFolder.replace(/_/g, ' ')}`
+      }));
+  } catch (e) {
+    return [];
+  }
+};
+
+const imgIngenieria = getImages('ingenieria_y_proyectos');
+const imgFabricacion = getImages('fabricacion_y_montaje_de_estructuras');
+const imgMantenimiento = getImages('mantenimiento_industrial');
+const imgPiezas = getImages('fabricacion_de_piezas_mecanicas');
+const imgAcabado = getImages('preparacion_y_acabado_superficial');
 ---
 
 <Layout 
-  title="Servicios — H&H Diseño Fabricacion y Montaje"
-  description="Catálogo completo de servicios metalmecánicos: ingeniería, fabricación, montaje, mantenimiento y acabado superficial."
+  title="Servicios Metalmecánicos Arequipa | Estructuras, Montaje y Mantenimiento"
+  description="Catálogo completo de servicios metalmecánicos en Arequipa y Perú: ingeniería especializada, fabricación de estructuras, montaje industrial, mantenimiento y acabado superficial (arenado y pintura)."
+  keywords="servicios metalmecánicos, fabricación estructural, tuberías industriales, soldadura especializada, arenado industrial, pintura epóxica, mecanizado de piezas, mantenimiento industrial preventivo, Arequipa, Perú"
 >
   <section class="page-hero">
     <div class="page-hero__overlay"></div>
@@ -31,7 +56,11 @@ import Layout from '../layouts/Layout.astro';
           </ul>
         </div>
         <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=800&h=600&fit=crop" alt="Ingeniero revisando planos" loading="lazy" />
+          {imgIngenieria.length > 0 ? (
+            <PhotoSequence images={imgIngenieria} interval={3000} />
+          ) : (
+            <img src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=800&h=600&fit=crop" alt="Ingeniero revisando planos" loading="lazy" />
+          )}
         </div>
       </div>
     </div>
@@ -42,7 +71,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="grid-2 service-detail reverse">
         <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=600&fit=crop" alt="Mantenimiento industrial" loading="lazy" />
+          {imgMantenimiento.length > 0 ? (
+            <PhotoSequence images={imgMantenimiento} interval={3400} />
+          ) : (
+            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=600&fit=crop" alt="Mantenimiento industrial" loading="lazy" />
+          )}
         </div>
         <div class="service-info">
           <span class="section-tag">Servicio 02</span>
@@ -75,7 +108,11 @@ import Layout from '../layouts/Layout.astro';
           </ul>
         </div>
         <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=800&h=600&fit=crop" alt="Taller de fabricación de acero" loading="lazy" />
+          {imgFabricacion.length > 0 ? (
+            <PhotoSequence images={imgFabricacion} interval={3500} />
+          ) : (
+            <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=800&h=600&fit=crop" alt="Taller de fabricación de acero" loading="lazy" />
+          )}
         </div>
       </div>
     </div>
@@ -86,7 +123,11 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div class="grid-2 service-detail reverse">
         <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop" alt="Fabricación de piezas mecánicas en torno" loading="lazy" />
+          {imgPiezas.length > 0 ? (
+            <PhotoSequence images={imgPiezas} interval={3200} />
+          ) : (
+            <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop" alt="Fabricación de piezas mecánicas en torno" loading="lazy" />
+          )}
         </div>
         <div class="service-info">
           <span class="section-tag">Servicio 04</span>
@@ -119,7 +160,11 @@ import Layout from '../layouts/Layout.astro';
           </ul>
         </div>
         <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=800&h=600&fit=crop" alt="Proceso de acabado superficial" loading="lazy" />
+          {imgAcabado.length > 0 ? (
+            <PhotoSequence images={imgAcabado} interval={3600} />
+          ) : (
+            <img src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=800&h=600&fit=crop" alt="Proceso de acabado superficial" loading="lazy" />
+          )}
         </div>
       </div>
     </div>
@@ -170,7 +215,8 @@ import Layout from '../layouts/Layout.astro';
   .reverse .service-image { order: 2; }
   .reverse .service-info { order: 1; }
   .page-hero { padding: calc(var(--header-height) + 40px) 0 60px; }
-  .service-image img { width: 100%; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); }
+  .service-image { border-radius: var(--radius-md); box-shadow: var(--shadow-lg); overflow: hidden; height: 100%; min-height: 350px; position: relative; }
+  .service-image img { width: 100%; height: 100%; object-fit: cover; }
   .service-info h2 { color: var(--color-primary); margin-bottom: var(--space-md); }
   .service-info p { color: var(--color-text-secondary); font-size: 1.05rem; margin-bottom: var(--space-lg); }
   

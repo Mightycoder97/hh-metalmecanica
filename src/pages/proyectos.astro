@@ -18,60 +18,80 @@ import Layout from '../layouts/Layout.astro';
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Galería de Obras</span>
-        <h2>Ejecución Comprobada</h2>
-        <p>Cada estructura cuenta nuestra historia de compromiso y precisión técnica.</p>
+        <span class="section-tag">Despliegue Operativo</span>
+        <h2>Ejecución Comprobada en Campo</h2>
+        <p>Descubre el nivel de detalle, seguridad y rigor técnico que aplicamos en cada una de nuestras intervenciones industriales.</p>
       </div>
 
-      <div class="proyecto-gallery">
-        <div class="proyecto-item span-2-col span-2-row">
-          <img src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=1000&h=800&fit=crop" alt="Montaje de nave industrial" loading="lazy" />
-          <div class="proyecto-overlay">
-            <h3>Montaje de Nave Industrial — 5000m²</h3>
-            <span class="proyecto-tag">Montaje Industrial</span>
+      <div class="blog-list">
+        <!-- 1. Soldadura -->
+        <article class="blog-item">
+          <header class="blog-header">
+            <span class="blog-tag">Fabricación y Montaje Estructural</span>
+            <h3>Soldadura Estructural y Levantamiento</h3>
+          </header>
+          <div class="blog-image">
+            <img src="/fotos_de_servicios/fabricacion_y_montaje_de_estructuras/whatsapp_image_2026_03_18_at_11.16.14_pm.jpeg" alt="Técnico soldador realizando juntas estructurales" loading="lazy" />
           </div>
-        </div>
-        
-        <div class="proyecto-item">
-          <img src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=600&h=400&fit=crop" alt="Cálculo estructural y planos" loading="lazy" />
-          <div class="proyecto-overlay">
-            <h3>Diseño Estructural de Planta</h3>
-            <span class="proyecto-tag">Ingeniería</span>
+          <div class="blog-content">
+            <p>El montaje de estructuras de acero pesado exige un estricto control de calidad y personal homologado en procesos SMAW y FCAW para garantizar la penetración total y resistencia mecánica crítica de las juntas.</p>
+            <p>Nuestros técnicos e inspectores NDT operan bajo rigurosas normativas internacionales AWS D1.1, asegurando que cada nodo, plancha base y conexión empernada o soldada soporte con creces las cargas dinámicas y estáticas estimadas en la etapa de ingeniería de detalle. La coordinación con maquinaria de izaje pesado se realiza bajo protocolos de seguridad industrial inquebrantables.</p>
           </div>
-        </div>
+        </article>
 
-        <div class="proyecto-item">
-          <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=600&h=400&fit=crop" alt="Soldadura de tanque" loading="lazy" />
-          <div class="proyecto-overlay">
-            <h3>Fabricación de Tanques de Almacenamiento</h3>
-            <span class="proyecto-tag">Fabricación</span>
+        <!-- 2. Mantenimiento -->
+        <article class="blog-item">
+          <header class="blog-header">
+            <span class="blog-tag">Mantenimiento Industrial</span>
+            <h3>Reacondicionamiento de Equipos Rotativos</h3>
+          </header>
+          <div class="blog-image">
+            <img src="/fotos_de_servicios/mantenimiento_industrial/reparacion_de_bombeadores_de_agua.jpg" alt="Mecánicos inspeccionando bombas de agua industriales" loading="lazy" />
           </div>
-        </div>
+          <div class="blog-content">
+            <p>La intervención y reparación de bombeadores y equipos rotativos industriales es fundamental para preservar el flujo de producción. Comenzamos con inspecciones de diagnóstico predictivo y vibracional para identificar el desgaste de los componentes internos.</p>
+            <p>El proceso abarca un desmontaje sistemático, evaluación milimétrica de alojamientos, impulsores, sellos mecánicos y rodamientos. Su posterior calibración y reacondicionamiento aseguran el restablecimiento total de la curva de eficiencia hidráulica u operativa del equipo, previniendo así paradas de planta no programadas y costosas averías cascada.</p>
+          </div>
+        </article>
 
-        <div class="proyecto-item">
-          <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=600&h=400&fit=crop" alt="Vigas de acero pesado" loading="lazy" />
-          <div class="proyecto-overlay">
-            <h3>Vigas Sección Variable para Puente</h3>
-            <span class="proyecto-tag">Fabricación Pesada</span>
+        <!-- 3. Pintura -->
+        <article class="blog-item">
+          <header class="blog-header">
+            <span class="blog-tag">Preparación y Acabado Superficial</span>
+            <h3>Aplicación de Recubrimientos Anti-Corrosivos</h3>
+          </header>
+          <div class="blog-image">
+            <img src="/fotos_de_servicios/preparacion_y_acabado_superficial/pintado_de_estracturas_metalicas_1.jpg" alt="Operario aplicando recubrimiento industrial en estructura metálica" loading="lazy" />
           </div>
-        </div>
+          <div class="blog-content">
+            <p>La durabilidad frente a ambientes de alta corrosión industrial e intemperie comienza con una exhaustiva limpieza y preparación superficial, empleando abrasivos a presión (Sandblasting) para alcanzar los grados de remoción óptimos estandarizados (SSPC-SP10).</p>
+            <p>Una vez preparado el anclaje, nuestros operarios especializados aplican sistemas de pintura multicapa (Bases zinc-rich, intermedios epóxicos y acabados de poliuretano ultravioleta) bajo condiciones de humedad y temperatura controladas. Supervisamos el espesor de película húmeda y posteriormente la película seca (DFT), garantizando una barrera protectora libre de poros y altamente resistente.</p>
+          </div>
+        </article>
 
-        <div class="proyecto-item">
-          <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop" alt="Mantenimiento en planta" loading="lazy" />
-          <div class="proyecto-overlay">
-            <h3>Parada de Planta y Mantenimiento</h3>
-            <span class="proyecto-tag">Soluciones a Medida</span>
+        <!-- 4. Mecanizado -->
+        <article class="blog-item">
+          <header class="blog-header">
+            <span class="blog-tag">Fabricación de Piezas Mecánicas</span>
+            <h3>Mecanizado de Precisión e Ingeniería Inversa</h3>
+          </header>
+          <div class="blog-image">
+            <img src="/fotos_de_servicios/fabricacion_de_piezas_mecanicas/whatsapp_image_2026_03_18_at_11.25.18_pm.jpeg" alt="Tornero midiendo tolerancias en pieza metálica" loading="lazy" />
           </div>
-        </div>
+          <div class="blog-content">
+            <p>Los componentes mecánicos y transmisiones exigen una fabricación con calibración micrométrica absoluta para interactuar sin ruidos excesivos ni desgastes prematuros. El área de Maestranza interviene cuando las piezas estándar fallan o se desgastan por el uso severo continuo.</p>
+            <p>Utilizando tornos y fresadoras de alta robustez, mecanizamos bocinas, ejes, poleas y piñones en aceros aleados, bronces y polímeros de ingeniería, muchas veces aplicando la técnica de ingeniería inversa a partir de piezas rotas. La verificación incesante de las tolerancias geométricas, concentricidad y rugosidad superficial es clave en este proceso especializado.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
   <section class="cta-section">
     <div class="container cta-content text-center">
-      <h2>¿Tu empresa será nuestro próximo gran proyecto?</h2>
-      <p>Nos adaptamos a presupuestos y cronogramas exigentes.</p>
-      <a href="/#contacto" class="btn btn-primary">Inicia una conversación</a>
+      <h2>¿Tu empresa requiere de ingenieros y especialistas técnicos?</h2>
+      <p>Asegura resultados impecables con nuestro grupo de profesionales experimentados.</p>
+      <a href="/#contacto" class="btn btn-primary">Contáctanos hoy mismo</a>
     </div>
   </section>
 </Layout>
@@ -107,62 +127,79 @@ import Layout from '../layouts/Layout.astro';
     border: 1px solid rgba(255,255,255,0.3);
   }
 
-  .proyecto-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 280px;
-    gap: var(--space-md);
-  }
-  .proyecto-item {
-    position: relative;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: var(--shadow-sm);
-  }
-  .span-2-col { grid-column: span 2; }
-  .span-2-row { grid-row: span 2; }
-  
-  .proyecto-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .proyecto-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+  .blog-list {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: var(--space-lg);
-    opacity: 0.9;
+    gap: var(--space-4xl);
+    max-width: 850px;
+    margin: var(--space-2xl) auto 0 auto;
+  }
+
+  .blog-item {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-xl);
     transition: all var(--transition-base);
   }
-  .proyecto-overlay h3 {
-    color: white;
-    margin: 0 0 var(--space-xs) 0;
-    font-size: 1.5rem;
-    transform: translateY(10px);
-    transition: transform 0.3s ease;
+
+  .blog-item:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
   }
-  .proyecto-tag {
+
+  .blog-header {
+    margin-bottom: var(--space-xl);
+    text-align: center;
+  }
+
+  .blog-tag {
+    display: inline-block;
     color: var(--color-accent-light);
     font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
+    font-weight: 700;
     letter-spacing: 0.05em;
-    transform: translateY(10px);
-    opacity: 0;
-    transition: all 0.3s ease;
+    text-transform: uppercase;
+    margin-bottom: var(--space-sm);
   }
-  .span-2-col .proyecto-overlay h3 { font-size: 2rem; }
-  
-  .proyecto-item:hover img { transform: scale(1.05); }
-  .proyecto-item:hover .proyecto-overlay { opacity: 1; background: linear-gradient(to top, rgba(26,76,132,0.9) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%); }
-  .proyecto-item:hover .proyecto-overlay h3 { transform: translateY(0); color: white; }
-  .proyecto-item:hover .proyecto-tag { transform: translateY(0); opacity: 1; }
+
+  .blog-header h3 {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .blog-image {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: var(--space-xl);
+  }
+
+  .blog-image img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .blog-item:hover .blog-image img {
+    transform: scale(1.03);
+  }
+
+  .blog-content p {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
+
+  .blog-content p:last-child {
+    margin-bottom: 0;
+  }
 
   .cta-section {
     padding: var(--space-4xl) 0;
@@ -173,12 +210,15 @@ import Layout from '../layouts/Layout.astro';
   .cta-content h2 { color: white; margin-bottom: var(--space-sm); }
   .cta-content p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto var(--space-xl) auto; font-size: 1.1rem; }
 
-  @media (max-width: 960px) {
-    .proyecto-gallery { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 768px) {
-    .proyecto-gallery { grid-template-columns: 1fr; grid-auto-rows: 240px; }
-    .span-2-col { grid-column: span 1; }
-    .span-2-row { grid-row: span 1; }
+  @media (min-width: 768px) {
+    .blog-item {
+      padding: var(--space-2xl) var(--space-3xl);
+    }
+    .blog-header h3 {
+      font-size: 2.2rem;
+    }
+    .blog-content p {
+      font-size: 1.1rem;
+    }
   }
 </style>

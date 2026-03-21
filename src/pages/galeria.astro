@@ -1,0 +1,395 @@
+---
+import Layout from '../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+import imageDescriptions from '../data/imageDescriptions.json';
+
+// Helper to load images dynamically with descriptions
+const getImages = (serviceFolder: string, serviceName: string) => {
+  try {
+    const dir = path.join(process.cwd(), 'public', 'fotos_de_servicios', serviceFolder);
+    if (!fs.existsSync(dir)) return [];
+    
+    return fs.readdirSync(dir)
+      .filter(file => /\.(png|jpe?g|webp|gif)$/i.test(file))
+      .map((file) => {
+        const relativePath = `${serviceFolder}/${file}`;
+        const descDict = imageDescriptions as Record<string, string>;
+        return {
+          src: `/fotos_de_servicios/${relativePath}`,
+          alt: `Proyecto de ${serviceName}`,
+          description: descDict[relativePath] || `Detalle de trabajo en ${serviceName}`
+        };
+      });
+  } catch (e) {
+    return [];
+  }
+};
+
+const categories = [
+  {
+    id: 'ingenieria',
+    title: 'Ingeniería y Proyectos',
+    images: getImages('ingenieria_y_proyectos', 'Ingeniería y Proyectos')
+  },
+  {
+    id: 'fabricacion',
+    title: 'Fabricación y Montaje',
+    images: getImages('fabricacion_y_montaje_de_estructuras', 'Fabricación y Montaje')
+  },
+  {
+    id: 'mantenimiento',
+    title: 'Mantenimiento Industrial',
+    images: getImages('mantenimiento_industrial', 'Mantenimiento Industrial')
+  },
+  {
+    id: 'piezas',
+    title: 'Piezas Mecánicas',
+    images: getImages('fabricacion_de_piezas_mecanicas', 'Piezas Mecánicas')
+  },
+  {
+    id: 'acabado',
+    title: 'Acabado Superficial',
+    images: getImages('preparacion_y_acabado_superficial', 'Acabado Superficial')
+  }
+];
+
+// Layout algorithm that guarantees perfect rectangles on 1, 2, and 4 column grids
+const getBentoLayout = (total) => {
+  let layout = [];
+  let rem = total;
+  let turn = 0;
+  while (rem > 0) {
+    if (rem >= 6) {
+      if (turn % 2 === 0) {
+        layout.push('bento-large', '', '', '', '');
+        rem -= 5;
+      } else {
+        layout.push('', '', 'bento-wide', '', '', 'bento-wide');
+        rem -= 6;
+      }
+    } else if (rem === 5) {
+      layout.push('bento-large', '', '', '', '');
+      rem -= 5;
+    } else if (rem === 4) {
+      layout.push('bento-large', '', '', 'bento-wide');
+      rem -= 4;
+    } else if (rem === 3) {
+      layout.push('bento-large', 'bento-tall', 'bento-tall');
+      rem -= 3;
+    } else if (rem === 2) {
+      layout.push('bento-large', 'bento-large');
+      rem -= 2;
+    } else if (rem === 1) {
+      layout.push('bento-hero');
+      rem -= 1;
+    }
+    turn++;
+  }
+  return layout;
+};
+
+// Compute bento layouts for each category upfront
+const categoriesWithLayout = categories.map(cat => ({
+  ...cat,
+  bentoClasses: getBentoLayout(cat.images.length)
+}));
+---
+
+<Layout 
+  title="Galería — H&H Diseño Fabricacion y Montaje"
+  description="Explora nuestra galería de proyectos en ingeniería, fabricación, montaje y mantenimiento industrial."
+>
+  <section class="page-hero">
+    <div class="page-hero__overlay"></div>
+    <div class="container page-hero__content">
+      <span class="hero__badge animate-fade-up">Portafolio</span>
+      <h1 class="animate-fade-up" style="animation-delay: 0.1s">Galería de Proyectos</h1>
+      <p class="animate-fade-up" style="animation-delay: 0.2s">Conoce la calidad y precisión de nuestro trabajo a través de imágenes detalladas de nuestras operaciones y resultados.</p>
+    </div>
+  </section>
+
+  <!-- Category Filter (Sticky) -->
+  <div class="gallery-nav-container">
+    <div class="container">
+      <nav class="gallery-nav">
+        {categories.map(cat => (
+          <a href={`#${cat.id}`} class="gallery-nav-link">{cat.title}</a>
+        ))}
+      </nav>
+    </div>
+  </div>
+
+  <div class="gallery-content">
+    {categoriesWithLayout.map(cat => (
+      cat.images.length > 0 && (
+        <section class="gallery-section" id={cat.id}>
+          <div class="container">
+            <h2 class="section-title">
+              <span class="text-accent">//</span> {cat.title}
+            </h2>
+            <div class="bento-grid">
+              {cat.images.map((img, index) => {
+                const extraClass = cat.bentoClasses[index];
+                const spanClass = extraClass ? `bento-item ${extraClass}` : 'bento-item';
+
+                return (
+                  <div class={spanClass}>
+                    <img src={img.src} alt={img.alt} loading="lazy" />
+                    <div class="bento-overlay">
+                      <div class="bento-info">
+                        <h3>{cat.title}</h3>
+                        <p>{img.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )
+    ))}
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    position: relative;
+    padding: calc(var(--header-height) + 80px) 0 100px;
+    background-image: url('https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1600&h=600&fit=crop');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+  }
+  .page-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(49,115,186,0.85));
+  }
+  .page-hero__content { position: relative; z-index: 2; }
+  .page-hero h1 { color: #fff; margin-bottom: var(--space-sm); }
+  .page-hero p { color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto; font-size: 1.15rem; }
+  .hero__badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    color: var(--color-accent-light);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-md);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Sticky Navigation */
+  .gallery-nav-container {
+    position: sticky;
+    top: var(--header-height);
+    background: rgba(15,23,42,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 40;
+    padding: var(--space-md) 0;
+  }
+  .gallery-nav {
+    display: flex;
+    overflow-x: auto;
+    gap: var(--space-md);
+    padding-bottom: 4px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .gallery-nav::-webkit-scrollbar { display: none; }
+  
+  .gallery-nav-link {
+    white-space: nowrap;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all var(--transition-base);
+  }
+  .gallery-nav-link:hover, .gallery-nav-link.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+  }
+
+  .gallery-content {
+    background: var(--color-background);
+    padding-bottom: var(--space-4xl);
+  }
+
+  .gallery-section {
+    padding-top: var(--space-3xl);
+    scroll-margin-top: calc(var(--header-height) + 80px);
+  }
+
+  .section-title {
+    font-size: 2rem;
+    color: var(--color-heading);
+    margin-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-sm);
+  }
+  
+  /* Bento Grid */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 250px;
+    gap: var(--space-md);
+  }
+
+  .bento-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+    min-height: 250px;
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .bento-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-lg);
+    transition: opacity 0.3s ease;
+  }
+
+  .bento-info {
+    transform: translateY(20px);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bento-info h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+
+  .bento-info p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    z-index: 2;
+  }
+
+  .bento-item:hover img {
+    transform: scale(1.05);
+  }
+
+  .bento-item:hover .bento-overlay {
+    opacity: 1;
+  }
+
+  .bento-item:hover .bento-info {
+    transform: translateY(0);
+  }
+
+  /* Bento Layout Variations for Tablet (2 columns) */
+  @media (min-width: 640px) {
+    .bento-grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: dense;
+    }
+    
+    .bento-large {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    
+    .bento-wide {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+    
+    .bento-tall {
+      grid-column: span 1;
+      grid-row: span 2;
+    }
+
+    .bento-hero, .bento-full {
+      grid-column: span 2;
+    }
+    
+    .bento-hero {
+      grid-row: span 2;
+    }
+  }
+
+  /* Bento Layout Variations for Desktop (4 columns) */
+  @media (min-width: 1024px) {
+    .bento-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .bento-full {
+      grid-column: span 4;
+      grid-row: span 1;
+    }
+
+    .bento-hero {
+      grid-column: span 4;
+      grid-row: span 2;
+    }
+  }
+</style>
+
+<script>
+  // Simple intersection observer to highlight active nav link
+  const observerOptions = {
+    root: null,
+    rootMargin: '-50% 0px -50% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        document.querySelectorAll('.gallery-nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+            // Scroll nav horizontally to keep active item in view on mobile
+            link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.gallery-section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
