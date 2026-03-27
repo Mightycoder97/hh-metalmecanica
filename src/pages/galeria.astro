@@ -136,12 +136,6 @@ const categoriesWithLayout = categories.map(cat => ({
                 return (
                   <div class={spanClass}>
                     <img src={img.src} alt={img.alt} loading="lazy" />
-                    <div class="bento-overlay">
-                      <div class="bento-info">
-                        <h3>{cat.title}</h3>
-                        <p>{img.description}</p>
-                      </div>
-                    </div>
                   </div>
                 );
               })}
