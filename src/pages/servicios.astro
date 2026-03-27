@@ -1,32 +1,38 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PhotoSequence from '../components/PhotoSequence.astro';
-import fs from 'node:fs';
-import path from 'node:path';
+import Layout from "../layouts/Layout.astro";
+import PhotoSequence from "../components/PhotoSequence.astro";
+import fs from "node:fs";
+import path from "node:path";
 
 const getImages = (serviceFolder: string) => {
   try {
-    const dir = path.join(process.cwd(), 'public', 'fotos_de_servicios', serviceFolder);
+    const dir = path.join(
+      process.cwd(),
+      "public",
+      "fotos_de_servicios",
+      serviceFolder
+    );
     if (!fs.existsSync(dir)) return [];
-    return fs.readdirSync(dir)
-      .filter(file => /\.(png|jpe?g|webp|gif)$/i.test(file))
-      .map(file => ({
+    return fs
+      .readdirSync(dir)
+      .filter((file) => /\.(png|jpe?g|webp|gif)$/i.test(file))
+      .map((file) => ({
         src: `/fotos_de_servicios/${serviceFolder}/${file}`,
-        alt: `Proyecto de ${serviceFolder.replace(/_/g, ' ')}`
+        alt: `Proyecto de ${serviceFolder.replace(/_/g, " ")}`,
       }));
   } catch (e) {
     return [];
   }
 };
 
-const imgIngenieria = getImages('ingenieria_y_proyectos');
-const imgFabricacion = getImages('fabricacion_y_montaje_de_estructuras');
-const imgMantenimiento = getImages('mantenimiento_industrial');
-const imgPiezas = getImages('fabricacion_de_piezas_mecanicas');
-const imgAcabado = getImages('preparacion_y_acabado_superficial');
+const imgIngenieria = getImages("ingenieria_y_proyectos");
+const imgFabricacion = getImages("fabricacion_y_montaje_de_estructuras");
+const imgMantenimiento = getImages("mantenimiento_industrial");
+const imgPiezas = getImages("fabricacion_de_piezas_mecanicas");
+const imgAcabado = getImages("preparacion_y_acabado_superficial");
 ---
 
-<Layout 
+<Layout
   title="Servicios Metalmecánicos Arequipa | Estructuras, Montaje y Mantenimiento"
   description="Catálogo completo de servicios metalmecánicos en Arequipa y Perú: ingeniería especializada, fabricación de estructuras, montaje industrial, mantenimiento y acabado superficial (arenado y pintura)."
   keywords="servicios metalmecánicos, fabricación estructural, tuberías industriales, soldadura especializada, arenado industrial, pintura epóxica, mecanizado de piezas, mantenimiento industrial preventivo, Arequipa, Perú"
@@ -36,7 +42,10 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
     <div class="container page-hero__content">
       <span class="hero__badge">Nuestra Oferta</span>
       <h1>Servicios Industriales</h1>
-      <p>Capacidad operativa superior para resolver los desafíos estructurales más exigentes. Descubre lo que podemos hacer por ti.</p>
+      <p>
+        Capacidad operativa superior para resolver los desafíos estructurales
+        más exigentes. Descubre lo que podemos hacer por ti.
+      </p>
     </div>
   </section>
 
@@ -55,11 +64,17 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
           </ul>
         </div>
         <div class="service-image">
-          {imgIngenieria.length > 0 ? (
-            <PhotoSequence images={imgIngenieria} interval={3000} />
-          ) : (
-            <img src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=800&h=600&fit=crop" alt="Ingeniero revisando planos" loading="lazy" />
-          )}
+          {
+            imgIngenieria.length > 0 ? (
+              <PhotoSequence images={imgIngenieria} interval={3000} />
+            ) : (
+              <img
+                src="https://images.unsplash.com/photo-1503694978374-8a2fa686963a?w=800&h=600&fit=crop"
+                alt="Ingeniero revisando planos"
+                loading="lazy"
+              />
+            )
+          }
         </div>
       </div>
     </div>
@@ -70,11 +85,17 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
     <div class="container">
       <div class="grid-2 service-detail reverse">
         <div class="service-image">
-          {imgMantenimiento.length > 0 ? (
-            <PhotoSequence images={imgMantenimiento} interval={3400} />
-          ) : (
-            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=600&fit=crop" alt="Mantenimiento industrial" loading="lazy" />
-          )}
+          {
+            imgMantenimiento.length > 0 ? (
+              <PhotoSequence images={imgMantenimiento} interval={3400} />
+            ) : (
+              <img
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&h=600&fit=crop"
+                alt="Mantenimiento industrial"
+                loading="lazy"
+              />
+            )
+          }
         </div>
         <div class="service-info">
           <span class="section-tag">Servicio 02</span>
@@ -98,20 +119,26 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
           <h2>Fabricación y Montaje de Estructuras</h2>
           <ul class="detail-list">
             <li>✓ Fabricación de estructuras livianas y pesadas</li>
-            <li>✓ Proceso SMAW (Soldadura por arco manual)</li>
-            <li>✓ Proceso FCAW (Alambre tubular)</li>
-            <li>✓ Proceso GMAW (MIG/MAG)</li>
-            <li>✓ Proceso GTAW (TIG)</li>
+            <li>✓ Soldadura Proceso SMAW</li>
+            <li>✓ Soldadura Proceso FCAW</li>
+            <li>✓ Soldadura Proceso GMAW</li>
+            <li>✓ Soldadura Proceso GTAW</li>
             <li>✓ Corte por plasma</li>
             <li>✓ Corte por láser</li>
           </ul>
         </div>
         <div class="service-image">
-          {imgFabricacion.length > 0 ? (
-            <PhotoSequence images={imgFabricacion} interval={3500} />
-          ) : (
-            <img src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=800&h=600&fit=crop" alt="Taller de fabricación de acero" loading="lazy" />
-          )}
+          {
+            imgFabricacion.length > 0 ? (
+              <PhotoSequence images={imgFabricacion} interval={3500} />
+            ) : (
+              <img
+                src="https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=800&h=600&fit=crop"
+                alt="Taller de fabricación de acero"
+                loading="lazy"
+              />
+            )
+          }
         </div>
       </div>
     </div>
@@ -122,11 +149,17 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
     <div class="container">
       <div class="grid-2 service-detail reverse">
         <div class="service-image">
-          {imgPiezas.length > 0 ? (
-            <PhotoSequence images={imgPiezas} interval={3200} />
-          ) : (
-            <img src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop" alt="Fabricación de piezas mecánicas en torno" loading="lazy" />
-          )}
+          {
+            imgPiezas.length > 0 ? (
+              <PhotoSequence images={imgPiezas} interval={3200} />
+            ) : (
+              <img
+                src="https://images.unsplash.com/photo-1581092162384-8987c1d64718?w=800&h=600&fit=crop"
+                alt="Fabricación de piezas mecánicas en torno"
+                loading="lazy"
+              />
+            )
+          }
         </div>
         <div class="service-info">
           <span class="section-tag">Servicio 04</span>
@@ -157,11 +190,17 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
           </ul>
         </div>
         <div class="service-image">
-          {imgAcabado.length > 0 ? (
-            <PhotoSequence images={imgAcabado} interval={3600} />
-          ) : (
-            <img src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=800&h=600&fit=crop" alt="Proceso de acabado superficial" loading="lazy" />
-          )}
+          {
+            imgAcabado.length > 0 ? (
+              <PhotoSequence images={imgAcabado} interval={3600} />
+            ) : (
+              <img
+                src="https://images.unsplash.com/photo-1493476523860-a6de6ce1b0c3?w=800&h=600&fit=crop"
+                alt="Proceso de acabado superficial"
+                loading="lazy"
+              />
+            )
+          }
         </div>
       </div>
     </div>
@@ -170,7 +209,10 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
   <section class="cta-section">
     <div class="container cta-content text-center">
       <h2>Soluciones Metalmecánicas Integrales para la Industria</h2>
-      <p>Garantizamos precisión, seguridad y cumplimiento en la ejecución técnica de cada proyecto.</p>
+      <p>
+        Garantizamos precisión, seguridad y cumplimiento en la ejecución técnica
+        de cada proyecto.
+      </p>
       <a href="/#contacto" class="btn btn-primary">Cotizar Servicio</a>
     </div>
   </section>
@@ -180,7 +222,7 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
   .page-hero {
     position: relative;
     padding: calc(var(--header-height) + 80px) 0 100px;
-    background-image: url('https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=1600&h=600&fit=crop');
+    background-image: url("https://images.unsplash.com/photo-1455165814004-1126a7199f9b?w=1600&h=600&fit=crop");
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -188,14 +230,29 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
   .page-hero__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(26,76,132,0.92), rgba(49,115,186,0.88));
+    background: linear-gradient(
+      135deg,
+      rgba(26, 76, 132, 0.92),
+      rgba(49, 115, 186, 0.88)
+    );
   }
-  .page-hero__content { position: relative; z-index: 2; }
-  .page-hero h1 { color: #fff; margin-bottom: var(--space-sm); }
-  .page-hero p { color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+  .page-hero__content {
+    position: relative;
+    z-index: 2;
+  }
+  .page-hero h1 {
+    color: #fff;
+    margin-bottom: var(--space-sm);
+  }
+  .page-hero p {
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+  }
   .hero__badge {
     display: inline-block;
-    background: rgba(255,255,255,0.15);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
     padding: 6px 16px;
     border-radius: var(--radius-full);
@@ -204,35 +261,88 @@ const imgAcabado = getImages('preparacion_y_acabado_superficial');
     letter-spacing: 0.1em;
     text-transform: uppercase;
     margin-bottom: var(--space-md);
-    border: 1px solid rgba(255,255,255,0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
   }
 
   /* Mobile Defaults */
-  .grid-2 { display: grid; grid-template-columns: 1fr; gap: var(--space-2xl); align-items: center; }
-  .reverse .service-image { order: 2; }
-  .reverse .service-info { order: 1; }
-  .page-hero { padding: calc(var(--header-height) + 40px) 0 60px; }
-  .service-image { border-radius: var(--radius-md); box-shadow: var(--shadow-lg); overflow: hidden; height: 100%; min-height: 350px; position: relative; }
-  .service-image img { width: 100%; height: 100%; object-fit: cover; }
-  .service-info h2 { color: var(--color-primary); margin-bottom: var(--space-md); }
-  .service-info p { color: var(--color-text-secondary); font-size: 1.05rem; margin-bottom: var(--space-lg); }
-  
-  .detail-list { display: flex; flex-direction: column; gap: var(--space-sm); }
-  .detail-list li { color: var(--color-primary-dark); font-weight: 500; }
-  
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+  .reverse .service-image {
+    order: 2;
+  }
+  .reverse .service-info {
+    order: 1;
+  }
+  .page-hero {
+    padding: calc(var(--header-height) + 40px) 0 60px;
+  }
+  .service-image {
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    height: 100%;
+    min-height: 350px;
+    position: relative;
+  }
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .service-info h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+  .service-info p {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .detail-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .detail-list li {
+    color: var(--color-primary-dark);
+    font-weight: 500;
+  }
+
   .cta-section {
     padding: var(--space-4xl) 0;
     background: var(--grad-primary);
     color: white;
   }
-  .cta-content h2 { color: white; margin-bottom: var(--space-sm); }
-  .cta-content p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto var(--space-xl) auto; font-size: 1.1rem; }
+  .cta-content h2 {
+    color: white;
+    margin-bottom: var(--space-sm);
+  }
+  .cta-content p {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto var(--space-xl) auto;
+    font-size: 1.1rem;
+  }
 
   /* Desktop */
   @media (min-width: 1025px) {
-    .grid-2 { grid-template-columns: 1fr 1fr; gap: var(--space-4xl); }
-    .reverse .service-image { order: unset; }
-    .reverse .service-info { order: unset; }
-    .page-hero { padding: calc(var(--header-height) + 80px) 0 100px; }
+    .grid-2 {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+    }
+    .reverse .service-image {
+      order: unset;
+    }
+    .reverse .service-info {
+      order: unset;
+    }
+    .page-hero {
+      padding: calc(var(--header-height) + 80px) 0 100px;
+    }
   }
 </style>

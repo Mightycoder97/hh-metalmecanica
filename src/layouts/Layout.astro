@@ -16,7 +16,7 @@ const {
   title,
   description = 'H&H Diseño Fabricacion y Montaje — Especialistas en Metalmecánica, Fabricación Estructural y Montaje Industrial en Arequipa y todo el Perú.',
   keywords = 'metalmecánica, estructuras metálicas, montaje industrial, ingeniería, piezas mecánicas, mantenimiento industrial, Arequipa, Perú, soldadura, arenado, pintura industrial',
-  ogImage = '/logo.png',
+  ogImage = '/logo_2.png',
   canonical = new URL(Astro.url.pathname, Astro.site || 'https://hhdfm.com').toString(),
 } = Astro.props;
 
@@ -37,8 +37,8 @@ const schema = {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": -16.3575,
-    "longitude": -71.5542
+    "latitude": -16.403689,
+    "longitude": -71.579172
   },
   "url": Astro.site || 'https://hhdfm.com',
   "telephone": "+51921941470",
@@ -63,8 +63,8 @@ const schema = {
     <!-- GEO / Local SEO para Búsquedas e IA -->
     <meta name="geo.region" content="PE-ARE" />
     <meta name="geo.placename" content="Arequipa" />
-    <meta name="geo.position" content="-16.3575;-71.5542" />
-    <meta name="ICBM" content="-16.3575, -71.5542" />
+    <meta name="geo.position" content="-16.403689;-71.579172" />
+    <meta name="ICBM" content="-16.403689, -71.579172" />
 
     <!-- Open Graph / Web -->
     <meta property="og:title" content={title} />
